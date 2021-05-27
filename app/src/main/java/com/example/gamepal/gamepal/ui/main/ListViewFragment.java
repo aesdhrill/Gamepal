@@ -14,26 +14,28 @@ import android.view.ViewGroup;
 
 import com.example.gamepal.gamepal.R;
 
-public class MainFragment extends Fragment {
+public class ListViewFragment extends Fragment {
 
     private MainViewModel mViewModel;
 
-    public static MainFragment newInstance() {
-        return new MainFragment();
+    public static ListViewFragment newInstance() {
+        return new ListViewFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.main_fragment, container, false);
+        return inflater.inflate(R.layout.list_view_fragment, container, false);
     }
 
-    @Override
+    //TODO: maybe work on this?
+
+  /*  @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
+    }
+    */
 }
