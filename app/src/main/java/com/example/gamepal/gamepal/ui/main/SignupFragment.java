@@ -3,6 +3,7 @@ package com.example.gamepal.gamepal.ui.main;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gamepal.gamepal.Login;
 import com.example.gamepal.gamepal.R;
 
 //TODO: Fix after LoginFragment works;
@@ -35,7 +37,8 @@ public class SignupFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View thisView = inflater.inflate(R.layout.login_fragment, container, false);
+
+        View thisView = inflater.inflate(R.layout.signup_fragment, container, false);
         logIn = thisView.findViewById(R.id.buttonLogin);
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,18 +46,18 @@ public class SignupFragment extends Fragment {
                 Toast.makeText(getContext(),"Button was clicked",Toast.LENGTH_SHORT).show();
             }
         });
-        ChangeFragment = thisView.findViewById(R.id.LoginSignup);
-        ChangeFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
-                    final FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.LoginSignupView,new LoginFragment());
-                }catch(Exception e){
-                    Log.e("Error in transaction",e.toString());
+
+        ChangeFragment = thisView.findViewById(R.id.LoginSignup); //this is null?
+        try{
+            ChangeFragment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Login)getActivity()).switchFragments(); //maybe works?
                 }
-            }
-        });
+            });
+        }catch(Exception e){
+            Log.e("errorListener","error setting onclick (signup): "+e);
+        }
         return thisView;
     }
 /*

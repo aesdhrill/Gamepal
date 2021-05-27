@@ -21,7 +21,10 @@ public class AppGlobalExtension extends Application {
     public static HashMap<String, String> loginData = new HashMap<String, String>(){{
         put("dupadupa@ua.pt", "UAjestFajne");
         put("ablachnicki@ua.pt", "wsadwsad12");
+        put("a","b");
     }};
+
+    //public static Vector<User>
 
     public void addToLogin(String email, String pwd){
         if (!loginData.containsKey(email)){
